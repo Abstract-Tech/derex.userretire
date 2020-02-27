@@ -1,0 +1,3 @@
+-r requirements.txt
+pyyaml
+pre-commit<2.1.0 # Until we upgrade docker-compose to 1.26 we're stuck here due to https://github.com/docker/compose/issues/6619
