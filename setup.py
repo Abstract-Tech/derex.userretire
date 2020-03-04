@@ -8,9 +8,7 @@ requirements = [
     "jinja2",
 ]
 
-setup_requirements = [
-    "pytest-runner",
-]
+setup_requirements = []
 
 test_requirements = [
     "pytest>=3",
@@ -35,7 +33,7 @@ setup(
     entry_points={
         "derex.runner": ["user_retire=derex.userretire.config:UserRetireService"],
         "derex.runner.cli_plugins": [
-            "userretire=derex.userretire.cli:userretire"
+            "userretire=derex.userretire.cli:userretire_setup"
         ],
     },
     install_requires=requirements,
