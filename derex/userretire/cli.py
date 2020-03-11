@@ -1,15 +1,15 @@
-from .port_me_to_derexrunner import exit_cm
+import json
+import os
+from tempfile import mkstemp
+
+import click
 from derex.runner.cli import ensure_project
 from derex.runner.project import DebugProject
 from derex.runner.utils import abspath_from_egg
-from .definitions import config_yaml_location
 from jinja2 import Template
-from tempfile import mkstemp
 
-
-import click
-import json
-import os
+from .definitions import config_yaml_location
+from .port_me_to_derexrunner import exit_cm
 
 
 @click.command("userretire-setup")
@@ -40,7 +40,7 @@ def setup_users(project):
         "lms",
         "sh",
         "-c",
-        PRINT_CLIENT_ID_AND_SECRET_COMMAND.format(**locals())
+        PRINT_CLIENT_ID_AND_SECRET_COMMAND.format(**locals()),
     ]
 
     try:
@@ -74,6 +74,7 @@ def setup_states(project):
         "./manage.py lms populate_retirement_states",
     ]
     run_compose(args, project=DebugProject())
+
 
 PRINT_CLIENT_ID_AND_SECRET_COMMAND = r"""
 cat > /script.py <<'EOF'

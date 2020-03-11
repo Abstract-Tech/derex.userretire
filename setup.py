@@ -8,8 +8,6 @@ requirements = [
     "jinja2",
 ]
 
-setup_requirements = []
-
 test_requirements = [
     "pytest>=3",
 ]
@@ -44,7 +42,7 @@ setup(
     name="derex.userretire",
     packages=find_namespace_packages(include=["derex.userretire"]),
     namespace_packages=["derex"],
-    setup_requires=setup_requirements,
+    setup_requires=[],
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/Abstract-Tech/derex.userretire",
