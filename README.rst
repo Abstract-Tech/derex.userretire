@@ -37,3 +37,9 @@ Development
 
     pip install -r requirements/requirements_dev.txt
     pre-commit install --install-hooks
+
+* Build docker image ::
+
+    TUBULAR_VERSION=aee0605aa25a7b39f70b661221ef0472d3757161
+    docker build docker-definition/ --build-arg TUBULAR_VERSION=${TUBULAR_VERSION} -t derex/tubular:${TUBULAR_VERSION}
+    docker push derex/tubular:${TUBULAR_VERSION}
