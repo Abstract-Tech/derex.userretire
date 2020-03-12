@@ -25,5 +25,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 FROM sourceonly
 
+COPY retire_users.sh /usr/local/bin/
+
 RUN --mount=type=cache,target=/root/.cache/pip --mount=type=bind,source=/wheelhouse,from=wheels,target=/wheelhouse \
-    pip install --find-links /wheelhouse -r /tubular/requirements.txt
+    pip install --find-links /wheelhouse -r /tubular/requirements.txt && \
+    ln -s /usr/local/bin/retire_users.sh /etc/periodic/hourly

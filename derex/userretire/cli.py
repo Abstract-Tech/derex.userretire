@@ -29,8 +29,8 @@ def setup_users(project):
     """
     from derex.runner.compose_utils import run_compose
 
-    user_name = "retirement_user"
-    app_name = "retirement_app"
+    user_name = "RETIREMENT_SERVICE_USER"
+    app_name = "RETIREMENT_SERVICE_APP"
     fp, result_path = mkstemp(".json", "derex-userretire-")
     args = [
         "run",
