@@ -2,7 +2,7 @@ client_id: {{ client_id }}
 client_secret: {{ client_secret }}
 
 base_urls:
-  lms: http://lms:4700/
+  lms: http://lms.internal:4700
 
 retirement_pipeline:
   - ['RETIRING_EMAIL_LISTS', 'EMAIL_LISTS_COMPLETE', 'LMS', 'retirement_retire_mailings']

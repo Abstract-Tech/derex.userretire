@@ -1,0 +1,21 @@
+# User retire services
+version: "3.5"
+services:
+  userretire:
+    image: derex/tubular:aee0605aa25a7b39f70b661221ef0472d3757161
+    command:
+      crond -f
+    networks:
+      - derex
+      - userretire
+    volumes:
+    - {{ yaml_location }}:/config.yaml
+    container_name: {{ project.name }}_userretire
+  lms:
+    networks:
+      userretire:
+        aliases:
+        - lms.internal
+
+networks:
+  userretire:

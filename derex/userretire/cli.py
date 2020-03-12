@@ -56,7 +56,7 @@ def setup_users(project):
     )
 
     tmpl = Template(template_path.read_text())
-    text = tmpl.render(**result)
+    text = tmpl.render(**dict(result, project=project))
     config_yaml_location(project).write_text(text)
 
 
