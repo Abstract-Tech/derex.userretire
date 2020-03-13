@@ -4,7 +4,7 @@ services:
   userretire:
     image: derex/tubular:aee0605aa25a7b39f70b661221ef0472d3757161
     command:
-      crond -f
+      crond -f -d8
     networks:
       - derex
       - userretire
