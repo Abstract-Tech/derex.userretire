@@ -15,6 +15,8 @@ class UserRetireService:
     def local_compose_options(
         project: Project,
     ) -> Optional[Dict[str, Union[str, List[str]]]]:
+        if "userretire" not in project.config.get("plugins", {}):
+            return None
         local_compose_path = generate_local_docker_compose(project)
         options = ["-f", str(local_compose_path)]
         return {

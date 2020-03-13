@@ -1,1 +1,4 @@
 project_name: userretire
+
+plugins:
+  userretire:
